@@ -13,28 +13,27 @@ html
 
     form#form-register(action='api/register' method='POST')
       p
-        | Wir richten eine Mailingliste fuer euren Jahrgang ein.
+        | Wir richten eine Mailingliste für euren Jahrgang ein.
         | Auf dieser Mailingliste erreichen euch organisatorische Informationen,
-        | und ihr habt selbst die Moeglichkeit jahrgangsbetreffende Infos auszutauschen.
-        | Hierfuer brauchen wir eure Email Adressen.
+        | und ihr habt selbst die Möglichkeit jahrgangsbetreffende Infos auszutauschen.
+        | Hierfür brauchen wir eure Email Adressen.
         | Am besten gibst du deine neue Uni-Emailadresse an (m_must04@wwu.de),
-        | da du sie waehrend deines Studiums ohnehin viel verwenden wirst.
+        | da du sie während deines Studiums ohnehin viel verwenden wirst.
       label(for='email') E-Mail:
       input#email(name='email', type='email', required='', autocomplete='off', placeholder='donald@duck.com', maxlength="50")
       label(for='email-confirmation') E-Mail bestätigen:
       input#email-confirmation(type='email', required='', autocomplete='off', placeholder='donald@duck.com', maxlength="50")
       p
-        | Die Fachschaft pflegt einen Newsletter, der mehr oder weniger regelmaessig (ca 4 mal im Semester)
+        | Die Fachschaft pflegt einen Newsletter, der mehr oder weniger regelmässig (ca 4 mal im Semester)
         | fuer Geoinformatiker relevante Neuigkeiten bringt.
         | Das beinhaltet Events von der Fachschaft, die Vorstellung neuer Dozenten, Jobangebote, Änderungen im Studienverlaufsplan, und allgemeine Gelegenheiten wie Kurse, Stipendiums-Ausschreibungen, Teilnahme an Studien
         | Du kannst dich jederzeit wieder von dem Newsletter abmelden.
       label(for='newsletter') Auch fuer den Fachschafts-Newsletter anmelden:
-      input#newsletter(type='checkbox', required='', value='true',)
+      input#newsletter(type='checkbox', checked='', value='true' name='newsletter')
       input(type='submit', value='Absenden')
 
     div(class='logo')
       img(src='images/pacman.svg', width='150', alt='', padding="20px")
-      img(src='images/notpacman.svg', width='170', alt='', padding="20px")
 
     script(src='https://code.jquery.com/jquery-2.2.4.min.js' integrity='sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=' crossorigin='anonymous')
     script(src='js/index.js')

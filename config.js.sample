@@ -1,19 +1,19 @@
 /**
- * configuration template for ErstiWeTool
+ * configuration template for ersti-mails tool
  */
 
 module.exports = {
-  http_port: 3333,
+  http_port: process.env.erstimails_port || 3333,
 
   // affects the database queries & email templates
-  year: new Date().getYear() + 1900,
+  year: process.env.erstimails_year || new Date().getYear() + 1900,
 
   // if you change these values, also change them in schema.sql !
   mysql: {
-    database: 'ersti-mails',
-    host: 'localhost',
-    user: 'ersti-mails',
-    password: 'test',
+    database: process.env.erstimails_dbdb || 'ersti-mails',
+    host: process.env.erstimails_dbhost || 'localhost',
+    user: process.env.erstimails_dbuser || 'ersti-mails',
+    password: process.env.erstimails_dbpass || 'test',
     connectionlimit: 25,
   },
 };
