@@ -6,7 +6,7 @@ module.exports = {
   http_port: 3333,
 
   // affects the database queries & email templates
-  year: 2017,
+  year: new Date().getYear() + 1900,
 
   // if you change these values, also change them in schema.sql !
   mysql: {

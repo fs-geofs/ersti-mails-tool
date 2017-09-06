@@ -1,19 +1,20 @@
-# ErstiWeTool
-Tool to manage a freshmans weekend by GEOFS.
+# ersti-mails tool
+Registration form for freshmen mailinglist.
+Provides checkbox for newsletter signup as well.
 
 ## Installation
 Requires [`node >= 6.x`](https://nodejs.org/en/download/package-manager/) and `mysql-server >=5.x`.
 
 ```bash
-git clone https://github.com/SpeckiJ/ErstiWeTool.git
-cd ErstiWeTool
+git clone https://github.com/fs-geofs/ersti-mails.git
+cd ersti-mails
 npm install
 mysql -u root -p < schema.sql
-echo "SET PASSWORD FOR 'ersti-we' = PASSWORD('my pass word here')" | mysql -u root -p
+echo "SET PASSWORD FOR 'ersti-mails' = PASSWORD('my pass word here')" | mysql -u root -p
 cp config.js.sample config.js
 ```
 
-Now open `config.js` and configure the application to your likings.
+Now open `config.js` and insert the SQL user password.
 
 At last, create login credentials for the admin panel (requires `htpasswd` from apache-utils):
 ```
@@ -27,10 +28,18 @@ There are two frontend endpoints:
 - `./admin`: contains an adminpanel, requires authentication
 
 ## run as service
-On a system capable of running init scripts, you may edit the file `ErstiWeTool` and copy it to `/etc/init.d/`, then start the app via
-`sudo service ErstiWeTool start`
-
-To enable starting on boot, run
+### systemd
+```bash
+vi init/ersti-mails.service # change installation path
+sudo cp init/ersti-mails.service /etc/systemd/system/
+sudo systemctl enable ersti-mails
+sudo systemctl start ersti-mails
 ```
-sudo update-rc.d ErstiWeTool defaults 98 02
+
+### upstart
+```bash
+vi init/ersti-mails # change installation path
+sudo cp init/ersti-mails /etc/init.d/
+sudo update-rc.d ersti-mails defaults 98 02
+sudo service ersti-mails start
 ```

@@ -3,7 +3,7 @@
 USER="root"
 NODE_ENV="production"
 PORT="3000"
-APP_DIR="/srv/ErstiWeTool"
+APP_DIR="/srv/ersti-mails"
 NODE_APP="bin/www"
 CONFIG_DIR="$APP_DIR"
 PID_DIR="$APP_DIR/pid"

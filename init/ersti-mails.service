@@ -1,0 +1,20 @@
+[Unit]
+Description=ErstiWe Management tool (node + mysql)
+After=network.target
+
+[Service]
+WorkingDirectory=/srv/ersti-mails
+ExecStart=/usr/bin/nodejs ./bin/www
+ExecReload=/bin/kill -HUP $MAINPID
+Restart=always
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=ersti-mails
+User=node
+Group=www-data
+Environment='NODE_ENV=production'
+Environment='PORT=3333'
+
+[Install]
+WantedBy=multi-user.target
+
