@@ -3,36 +3,18 @@
  */
 
 module.exports = {
-  http_port: 3000,
+  http_port: 3333,
 
   // affects the database queries & email templates
-  year: 2016,
-  attendee_cost: 40,
-  dates: {
-    begin: '2016-10-28T09:30:00+02',
-    end: '2016-10-30T13:00:00+02'
-  },
+  year: 2017,
 
   // if you change these values, also change them in schema.sql !
   mysql: {
-    database: 'ersti-we',
+    database: 'ersti-mails',
     host: 'localhost',
-    user: 'ersti-we',
+    user: 'ersti-mails',
     password: 'test',
     connectionlimit: 25,
-  },
-
-  mailer: {
-    host: 'secmail.uni-muenster.de', // SMTP Server
-    port: 587,
-    auth: {
-      user:'testuser',
-      pass:'test'
-    },
-    from: '"Foo Bar" <baz@test.com>', // Email address which to send from
-    requireTLS: true, // Use STARTTLS
-    pool: true, // Use connection pool
-    maxConnections: 10, // Maximum number of connections
   },
 };
 

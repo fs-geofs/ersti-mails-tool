@@ -3,115 +3,35 @@ html
   head
     meta(http-equiv='content-type', content='text/html; charset=utf-8; width=device-width; initial-scale=1.0')
     link(rel='stylesheet', href='stylesheets/index.css')
-    title='GEO Ersti-Wochenende ' + year
+    title='Jahrgangs-Mailingliste ' + year
   body
     header
-      div.headline='Ersti-Wochenende ' + year
+      div.headline='Jahrgangs-Mailingliste ' + year
 
     div#info-container
       div#info(style='display:none')
 
-    div#menu
-      button(onclick='toggleView("register")') Mit Code anmelden!
-      br
-      button(onclick='toggleView("waitlist")') Kein Code? Auf die Warteliste!
-      br
-      button(onclick='toggleView("optout")') Doch keine Zeit? Abmelden!
-
-    div#back.hidden
-      button(onclick='toggleView("menu")') zurück
-
-    form#form-register.hidden(action='api/register' method='POST')
-      input#token(name='token', type='text', required='', autocomplete='off', placeholder='Anmeldungs-Code', maxlength="8")
+    form#form-register(action='api/register' method='POST')
       p
-        | Bitte gebe deine persönlichen Daten an.
-        | Dies macht die Organisation des Wochenendes für dich & uns deutlich einfacher.
-      label(for='firstname') Vorname:
-      input#firstname(name='firstname', type='text', required='', autocomplete='off',placeholder='Donald', maxlength="50")
-      label(for='lastname') Nachname:
-      input#lastname(name='lastname', type='text', required='', autocomplete='off',placeholder='Duck', maxlength="50")
-      fieldset#gender
-        legend Geschlecht:
-        input(type='radio', name='gender', value='male', required='')
-        | männlich
-        br
-        input(type='radio', name='gender', value='female', required='')
-        | weiblich
-        br
-        input(type='radio', name='gender', value='other', required='')
-        | who cares?!
+        | Wir richten eine Mailingliste fuer euren Jahrgang ein.
+        | Auf dieser Mailingliste erreichen euch organisatorische Informationen,
+        | und ihr habt selbst die Moeglichkeit jahrgangsbetreffende Infos auszutauschen.
+        | Hierfuer brauchen wir eure Email Adressen.
+        | Am besten gibst du deine neue Uni-Emailadresse an (m_must04@wwu.de),
+        | da du sie waehrend deines Studiums ohnehin viel verwenden wirst.
       label(for='email') E-Mail:
-      input#email(name='email', type='email', required='', autocomplete='off',placeholder='donald@duck.com', maxlength="50")
+      input#email(name='email', type='email', required='', autocomplete='off', placeholder='donald@duck.com', maxlength="50")
       label(for='email-confirmation') E-Mail bestätigen:
-      input#email-confirmation(type='email', required='', autocomplete='off',placeholder='donald@duck.com', maxlength="50")
-      label(for='phone') Handynummer:
-      input#phone(name='phone', type='tel', required='', autocomplete='off',placeholder='0123456789', maxlength="50")
-      label(for='birthday') Geburtstag:
-      input#birthday(name='birthday', type='date', placeholder='21.03.1994', autocomplete='off', maxlength="50")
-      fieldset#study(required='true')
-        legend Studiengang:
-        input(type='radio', name='study', value='Geographie' required='')
-        | Geographie
-        br
-        input(type='radio', name='study', value='Landschaftsökologie', required='')
-        | Landschaftsökologie
-        br
-        input(type='radio', name='study', value='Zwei-Fach-Bachelor', required='')
-        | Zwei-Fach-Bachelor
-        br
-        input(type='radio', name='study', value='Geoinformatik', required='')
-        | Geoinformatik
-      fieldset#food
-        legend Ich ernähre mich
-        input(type='radio', name='food', value='fleischig', required='')
-        | fleischig
-        br
-        input(type='radio', name='food', value='vegetarisch', required='')
-        | vegetarisch
-        br
-        input(type='radio', name='food', value='vegan', required='')
-        | vegan
-      label(for='comment') Willst du uns noch etwas mitteilen?
-      textarea#comment(name='comment', autocomplete='off', placeholder='Allergene, ... [max 500 Zeichen]', maxlength="500")
-      label
-        em Hinweis:
-      ul
-        li Die Teilnahme ist ab 18. Dein Alter wird vor der Fahrt geprüft!
-        br
-        li
-          | Auf dem Ersti-Wochende wird gefilmt.
-          | Aus diesen Filmaufnahmen wird ein Video geschnitten welches auf der GEO-Weihnachtsfeier gezeigt wird.
-          | Mit der Anmeldung zum Ersti-Wochenende erklärst du dich damit einverstanden, dass auch Material verwendet wird auf dem du zu sehen bist.
-        br
-        li
-          | Deine Anmeldung ist verbindlich.
-          | Wenn du an der Fahrt nicht mehr teilnehmen willst/kannst, ist die Rückerstattung des Teilnehmerbetrages nur möglich, wenn ein Nachfolger gefunden wird (je nach Andrang auf der Warteliste).
-
+      input#email-confirmation(type='email', required='', autocomplete='off', placeholder='donald@duck.com', maxlength="50")
+      p
+        | Die Fachschaft pflegt einen Newsletter, der mehr oder weniger regelmaessig (ca 4 mal im Semester)
+        | fuer Geoinformatiker relevante Neuigkeiten bringt.
+        | Das beinhaltet Events von der Fachschaft, die Vorstellung neuer Dozenten, Jobangebote, Änderungen im Studienverlaufsplan, und allgemeine Gelegenheiten wie Kurse, Stipendiums-Ausschreibungen, Teilnahme an Studien
+        | Du kannst dich jederzeit wieder von dem Newsletter abmelden.
+      label(for='newsletter') Auch fuer den Fachschafts-Newsletter anmelden:
+      input#newsletter(type='checkbox', required='', value='true',)
       input(type='submit', value='Absenden')
 
-    form#form-waitlist.hidden(action='api/waitlist' method='POST')
-      p.description
-        | Du kannst dich hier auf die Warteliste setzen lassen.
-        ul
-          li Wenn ein Platz frei wird, bekommen alle Personen auf der Warteliste gleichzeitig in den nächsten Stunden eine Email mit einem neuen Zugangscode zugesendet.
-          br
-          li Die Person die den Zugangscode als erstes einlöst bekommt den freigewordenen Platz (first-come-first-serve Prinzip).
-          br
-          li Den Kostenbeitrag für das Wochenende gibst du an diejenige Person, deren Platz frei geworden ist (Kontaktdaten kommen per Email).
-      label(for='email') E-Mail:
-      input#email-waitlist(name='email', type='email', required='', autocomplete='off',placeholder='donald@duck.ente', maxlength='50')
-      input(type='submit', value='Absenden')
-
-    form#form-optout.hidden(action='api/optout' method='POST')
-      p.description
-        | Hier kannst du dich abmelden und deinen reservierten Platz
-        | für andere frei machen, solltest du am Ersti-Wochende nicht teilnehmen können.
-        | Den Kostenbeitrag erhältst du - sofern sich jemand findet - von einem Nachrücker erstattet.
-      label(for='token-optout') Code:
-      input#token-optout(name='token', type='text', required='', autocomplete='off',placeholder='Code', maxlength='8')
-      label(for='email-optout') E-Mail:
-      input#email-optout(name='email', type='email', required='', autocomplete='off',placeholder='donald@duck.ente', maxlength='50')
-      input(type='submit', value='Absenden')
     div(class='logo')
       img(src='images/pacman.svg', width='150', alt='', padding="20px")
       img(src='images/notpacman.svg', width='170', alt='', padding="20px")
