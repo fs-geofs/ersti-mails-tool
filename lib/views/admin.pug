@@ -16,84 +16,32 @@ html
         td
           a(href='./api/users' target='_blank') [API]
       tr
-        th(style="text-align: right;") Token frei:
-        td#count-unused
+        th(style="text-align: right;") Token newsletter:
+        td#count-newsletter
         td
-          a(href='./api/users/unused?download&format=csv') [CSV]
+          a(href='./api/newsletter?download&format=csv') [CSV]
         td
-          a(href='./api/users/unused' target='_blank') [API]
-      tr
-        th(style="text-align: right;") Angemeldete User:
-        td#count-attendees
-        td
-          a(href='./api/users/attending?download&format=csv') [CSV]
-        td
-          a(href='./api/users/attending' target='_blank') [API]
-      tr
-        th(style="text-align: right;") Abgemeldete User:
-        td#count-optouts
-        td
-          a(href='./api/users/opted-out?download&format=csv') [CSV]
-        td
-          a(href='./api/users/opted-out' target='_blank') [API]
-      tr
-        th(style="text-align: right;") Nachgerückte User:
-        td#count-successors
-        td
-          a(href='./api/users/from-waitlist?download&format=csv') [CSV]
-        td
-          a(href='./api/users/from-waitlist' target='_blank') [API]
-      tr
-        th(style="text-align: right;") Warteliste:
-        td#count-waitlist
-        td
-          a(href='./api/waitlist?download&format=csv') [CSV]
-        td
-          a(href='./api/waitlist' target='_blank') [API]
-      tr
-        th(style="text-align: right;") eingereihte Wartelistenmails:
-        td#count-waitlistScheduled
-        td
-          a(href='./api/waitlist/scheduled?download&format=csv') [CSV]
-        td
-          a(href='./api/waitlist/scheduled' target='_blank') [API]
+          a(href='./api/newsletter' target='_blank') [API]
 
-    h1 Userliste
-    table#user-table.compact.striped.order-column.hover(data-page-length='100', data-order='[[11]]', data-scroll-x='true', width='100%')
-      thead
-        tr
-          th Token
-          th Vorname
-          th Nachname
-          th Geschlecht
-          th Email
-          th Telefon
-          th Kommentar
-          th Geburtstag
-          th Ernährung
-          th Studiengang
-          th(data-visible="false") Jahr
-          th state
-          th timestamp
-          th prev_user
-      tbody
-
-    h1 Warteliste
-    table#waitlist-table.compact.striped.order-column.hover(data-scroll-x='true', width='100%')
+    h1 Mailingliste
+    table#user-table.compact.striped.order-column.hover(data-page-length='100', data-scroll-x='true', width='100%')
       thead
         tr
           th Email
           th(data-visible="false") Jahr
+          th Newsletter
           th Anmeldung
       tbody
 
-    h1 Token generieren
-    form#gen-tokens(action='./api/generateTokens/', method='GET')
-      label(for='amount') Tokenanzahl:
-        input#email(name='amount', type='number', required='', autocomplete='off', placeholder='70', max='1000')
-      input(type='submit', value='Generieren')
-      br
-      textarea.hidden#new-tokens
+    h1 Newsletter
+    table#newsletter-table.compact.striped.order-column.hover(data-page-length='100', data-scroll-x='true', width='100%')
+      thead
+        tr
+          th Email
+          th(data-visible="false") Jahr
+          th(data-visible="false") Newsletter
+          th Anmeldung
+      tbody
 
     script(src='https://code.jquery.com/jquery-2.2.4.min.js' integrity='sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=' crossorigin='anonymous')
     script(type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.12/js/jquery.dataTables.js")

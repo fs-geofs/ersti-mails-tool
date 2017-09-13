@@ -16,11 +16,11 @@ USE `ersti-mails` ;
 DROP TABLE IF EXISTS `ersti-mails`.`users` ;
 
 CREATE TABLE IF NOT EXISTS `ersti-mails`.`users` (
-  `email` VARCHAR(50) NOT NULL NULL,
+  `email` VARCHAR(50) NOT NULL,
   `year` INT NOT NULL,
   `newsletter` BOOLEAN NOT NULL,
   `timestamp` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP, -- date of registration
-  PRIMARY KEY (`email`, `year`),
+  PRIMARY KEY (`email`, `year`)
 ) ENGINE = InnoDB;
 
 -- Compatibility to mysql < 5.6.*, replacing

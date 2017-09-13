@@ -29,7 +29,6 @@ $(document).ready(function() {
       },
       success: function(res) {
         // reset the view
-        toggleView('menu');
         $(that).trigger('reset');
         showAlert(res, 'success');
       }
