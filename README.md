@@ -3,12 +3,12 @@ Registration form for freshmen mailinglist.
 Provides checkbox for newsletter signup as well.
 
 ## Installation
-Requires [`node >= 6.x`](https://nodejs.org/en/download/package-manager/) and `mysql-server >=5.x`.
+Requires [`node ^6.x`](https://nodejs.org/en/download/package-manager/), [`yarn`](https://yarnpkg.com/en/docs/install) and `mysql-server ^5.7`.
 
 ```bash
 git clone https://github.com/fs-geofs/ersti-mails.git
 cd ersti-mails
-npm install
+yarn install
 mysql -u root -p < schema.sql
 echo "SET PASSWORD FOR 'ersti-mails' = PASSWORD('my pass word here')" | mysql -u root -p
 cp config.js.sample config.js
@@ -21,11 +21,20 @@ At last, create login credentials for the admin panel (requires `htpasswd` from 
 htpasswd -c ./admin.htpasswd <username>
 ```
 
-You now can start the app by running `npm start`.
+## Run
+You now can start the app by running `yarn start`.
 
 There are two frontend endpoints:
 - `./`:      contains the user facing forms
 - `./admin`: contains an adminpanel, requires authentication
+
+## Database via docker
+```sh
+# the root pw is set in docker-compose.yml
+docker-compose up -d mysql
+docker-compose exec mysql bash -c 'mysql -p < schema.sql'
+docker-compose exec mysql bash -c "echo 'SET PASSWORD FOR \"ersti-we\" = PASSWORD(\"test\")' | mysql -p"
+```
 
 ## run as service
 ### systemd
