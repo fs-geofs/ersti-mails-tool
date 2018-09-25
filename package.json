@@ -6,16 +6,16 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
-    "async": "^2.0.1",
-    "body-parser": "^1.17.2",
-    "debug": "^3.0.1",
-    "express": "^4.15.4",
-    "helmet": "^3.8.1",
+    "async": "^2.6.1",
+    "body-parser": "^1.18.3",
+    "debug": "^4.0.1",
+    "express": "^4.16.3",
+    "helmet": "^3.13.0",
     "http-auth": "^3.2.3",
-    "mysql": "^2.14.1",
-    "node-validator": "^0.1.23",
-    "pug": "~2.0.0-beta6",
-    "sanitize-html": "^1.13.0",
+    "mysql": "^2.16.0",
+    "node-validator": "^0.1.27",
+    "pug": "^2.0.3",
+    "sanitize-html": "^1.19.0",
     "to-csv": "^0.1.1"
   }
 }
