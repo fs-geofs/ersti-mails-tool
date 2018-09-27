@@ -14,19 +14,18 @@ html
     form#form-register(action='api/register' method='POST')
       p
         | Wir richten eine Mailingliste für euren Jahrgang ein.
-        | Auf dieser Mailingliste erreichen euch organisatorische Informationen,
-        | und ihr habt auch selbst die Möglichkeit, jahrgangsbetreffende Infos auszutauschen.
+        | Auf dieser Mailingliste erreichen euch organisatorische Informationen, und ihr habt auch selbst die Möglichkeit, jahrgangsbetreffende Infos auszutauschen.
+      p
         | Hierfür brauchen wir eure E-Mail-Adressen.
-        | Am besten gibst du deine neue Uni-E-Mail-Adresse an (m_must04@uni-muenster.de),
-        | da du sie während deines Studiums ohnehin viel verwenden wirst.
+        | Am besten gibst du deine neue Uni-E-Mail-Adresse an (m_must04@uni-muenster.de), da du sie während deines Studiums ohnehin viel verwenden wirst.
       label(for='email') E-Mail-Adresse:
       input#email(name='email', type='email', required='', autocomplete='off', placeholder='donald@duck.com', maxlength="50")
       label(for='email-confirmation') E-Mail-Adresse bestätigen:
       input#email-confirmation(type='email', required='', autocomplete='off', placeholder='donald@duck.com', maxlength="50")
       p
-        | Die Fachschaft pflegt einen Newsletter, der mehr oder weniger regelmäßig (ca. vier Mal im Semester)
-        | für Geoinformatiker relevante Neuigkeiten bringt.
+        | Die Fachschaft pflegt einen Newsletter, der mehr oder weniger regelmäßig (ca. vier Mal im Semester) für Geoinformatiker relevante Neuigkeiten bringt.
         | Das beinhaltet Events der Fachschaft, die Vorstellung neuer Dozenten, Jobangebote, Änderungen im Studienverlaufsplan, und allgemeine Angelegenheiten wie Kurse, Stipendiums-Ausschreibungen, Teilnahme an Studien etc.
+      p
         | Falls dir der Newsletter nicht gefällt, kannst du dich jederzeit wieder abmelden.
       label(for='newsletter') Auch für den Fachschafts-Newsletter anmelden:
       input#newsletter(type='checkbox', checked='', value='true' name='newsletter')
